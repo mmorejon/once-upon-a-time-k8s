@@ -4,7 +4,7 @@
 BASEDIR=$(pwd)
 FLAGS='--ignore-not-found=true'
 
-printf 'Iniciando el proceso de limpieza en el cluster ... \n'
+printf 'Starting the cleanup process on the cluster ... \n'
 
 # clean environment values
 unset KUBECONFIG
@@ -29,4 +29,4 @@ rm -f $BASEDIR/rbac/ca*
 kubectl --namespace default delete -f $BASEDIR/hpa/ $FLAGS
 kubectl delete -f $BASEDIR/metrics-server/ $FLAGS
 
-printf '\nHa terminado el proceso de limpieza en el cluster.\n'
+printf '\nThe cleanup process on the cluster is complete.\n'
