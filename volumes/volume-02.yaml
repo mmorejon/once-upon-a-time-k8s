@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: volume-02
+  labels:
+    app: volume-02
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: volume-02
+  template:
+    metadata:
+      labels:
+        app: volume-02
+    spec:
+      containers:
+        - name: container-01
+          image: ghcr.io/mmorejon/erase-una-vez-3:v0.2.0
+          imagePullPolicy: IfNotPresent
+          volumeMounts:
+            - name: my-volume
+              mountPath: /srv/erase-una-vez
+        - name: container-02
+          image: ghcr.io/mmorejon/erase-una-vez-3:v0.2.0
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: SLEEP_TIME
+              value: "2"
+          volumeMounts:
+            - name: my-volume
+              mountPath: /srv/erase-una-vez
+      volumes:
+        - name: my-volume
+          emptyDir: {}

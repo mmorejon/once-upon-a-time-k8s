@@ -1,0 +1,74 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: square
+  labels:
+    name: example-3
+    type: server
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: server
+  namespace: square
+  labels:
+    name: example-3
+    type: server
+spec:
+  containers:
+    - name: server
+      image: ghcr.io/mmorejon/erase-una-vez-2:v0.5.0
+      command:
+        - server
+      env:
+        - name: CHARACTER
+          value: "a Kubernetes book."
+      ports:
+        - name: http-server
+          containerPort: 8000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: server
+  namespace: square
+  labels:
+    name: example-3
+    type: server
+spec:
+  type: ClusterIP
+  selector:
+    type: server
+  ports:
+  - name: http-server
+    port: 8000
+    protocol: TCP
+    targetPort: http-server
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: circle
+  labels:
+    name: example-3
+    type: client
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: client
+  namespace: circle
+  labels:
+    name: example-3
+    type: client
+spec:
+  containers:
+    - name: client
+      image: ghcr.io/mmorejon/erase-una-vez-2:v0.5.0
+      command:
+        - client
+      env:
+        - name: ENDPOINT
+          value: "http://server.square:8000/echo"
+        - name: SLEEP_TIME
+          value: "3s"

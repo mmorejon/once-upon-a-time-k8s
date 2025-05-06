@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: rs-liveness
+  labels:
+    name: liveness
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: liveness
+  template:
+    metadata:
+      name: pod-liveness
+      labels:
+        name: liveness
+        language: golang
+    spec:
+      containers:
+      - name: message
+        image: ghcr.io/mmorejon/erase-una-vez-1:v0.3.0
+        livenessProbe:
+          exec:
+            command:
+            - /bin/cat
+            - /tmp/healthy
+          initialDelaySeconds: 20
+          failureThreshold: 3
+          periodSeconds: 5

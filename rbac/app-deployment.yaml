@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app
+  labels:
+    app: rbac
+  namespace: admin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rbac
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: rbac
+    spec:
+      serviceAccountName: developer
+      containers:
+        - name: erase-una-vez-4
+          image: ghcr.io/mmorejon/erase-una-vez-4:v0.2.0

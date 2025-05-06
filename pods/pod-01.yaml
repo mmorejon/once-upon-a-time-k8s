@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: example-pod-01
+spec:
+  containers:
+    - name: message
+      image: ghcr.io/mmorejon/erase-una-vez-1:v0.3.0

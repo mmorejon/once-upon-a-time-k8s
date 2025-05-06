@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: rs-example
+  labels:
+    name: example
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: example
+  template:
+    metadata:
+      name: pod-example
+      labels:
+        name: example
+        language: golang
+    spec:
+      containers:
+        - name: message
+          image: ghcr.io/mmorejon/erase-una-vez-1:v0.3.0

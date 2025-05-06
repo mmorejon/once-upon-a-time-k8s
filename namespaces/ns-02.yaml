@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: blue
+  labels:
+    name: example-2
+    space: blue
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: example-2
+  namespace: blue
+  labels:
+    name: example-2
+spec:
+  containers:
+    - name: message
+      image: ghcr.io/mmorejon/erase-una-vez-1:v0.3.2
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: green
+  labels:
+    name: example-2
+    space: green
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: example-2
+  namespace: green
+  labels:
+    name: example-2
+spec:
+  containers:
+    - name: mensaje
+      image: ghcr.io/mmorejon/erase-una-vez-1:v0.3.2

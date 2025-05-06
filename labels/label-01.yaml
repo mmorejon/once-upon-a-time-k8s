@@ -1,0 +1,90 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: figure-01
+  labels:
+    name: figure-01
+spec:
+  containers:
+    - name: message
+      image: ghcr.io/mmorejon/erase-una-vez-1:v0.3.0
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: figure-02
+  labels:
+    name: figure-02
+    color: red
+    shape: square
+spec:
+  containers:
+    - name: message
+      image: ghcr.io/mmorejon/erase-una-vez-1:v0.3.0
+      env:
+        - name: CHARACTER
+          value: "a red square."
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: figure-03
+  labels:
+    name: figure-03
+    color: green
+    shape: triangle
+spec:
+  containers:
+    - name: message
+      image: ghcr.io/mmorejon/erase-una-vez-1:v0.3.0
+      env:
+        - name: CHARACTER
+          value: "a green triangle."
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: figure-04
+  labels:
+    name: figure-04
+    color: yellow
+    shape: triangle
+spec:
+  containers:
+    - name: message
+      image: ghcr.io/mmorejon/erase-una-vez-1:v0.3.0
+      env:
+        - name: CHARACTER
+          value: "a yellow triangle."
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: figure-05
+  labels:
+    name: figure-05
+    color: blue
+    shape: square
+spec:
+  containers:
+    - name: message
+      image: ghcr.io/mmorejon/erase-una-vez-1:v0.3.0
+      env:
+        - name: CHARACTER
+          value: "a blue square."
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: figure-06
+  labels:
+    name: figure-06
+    color: blue
+    shape: triangle
+spec:
+  containers:
+    - name: message
+      image: ghcr.io/mmorejon/erase-una-vez-1:v0.3.0
+      env:
+        - name: CHARACTER
+          value: "a blue triangle."

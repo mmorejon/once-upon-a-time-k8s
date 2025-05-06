@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: example-pod-02
+spec:
+  containers:
+    - name: message
+      image: ghcr.io/mmorejon/erase-una-vez-1:v0.3.0
+      env:
+        - name: CHARACTER
+          value: "un castillo."
+        - name: SLEEP_TIME
+          value: "4s"

@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: example-01
+  labels:
+    app: cm-01
+data:
+  text: "erase una vez"

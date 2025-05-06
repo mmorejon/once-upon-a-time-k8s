@@ -1,0 +1,74 @@
+# server service
+apiVersion: v1
+kind: Service
+metadata:
+  name: server-02
+  labels:
+    app: server-02
+    example: second
+spec:
+  type: ClusterIP
+  selector:
+    app: server-02
+  ports:
+    - port: 8000
+      protocol: TCP
+      targetPort: http-server
+---
+# server application
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server-02
+  labels:
+    app: server-02
+    example: second
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: server-02
+  template:
+    metadata:
+      labels:
+        app: server-02
+        example: second
+    spec:
+      containers:
+        - name: server
+          image: ghcr.io/mmorejon/erase-una-vez-2:v0.4.0
+          command:
+            - server
+          ports:
+            - name: http-server
+              containerPort: 8000
+---
+# client application
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-02
+  labels:
+    app: client-02
+    example: second
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: client-02
+  template:
+    metadata:
+      labels:
+        app: client-02
+        example: second
+    spec:
+      containers:
+        - name: client
+          image: ghcr.io/mmorejon/erase-una-vez-2:v0.4.0
+          command:
+            - client
+          env:
+            - name: ENDPOINT
+              value: "http://server-02:8000/echo"
+            - name: SLEEP_TIME
+              value: "3s"

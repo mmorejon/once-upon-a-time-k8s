@@ -1,0 +1,59 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ing-02
+  labels:
+    app: ing-02
+spec:
+  rules:
+    - host: ing-02-172-18-0-6.nip.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: ing-02
+                port:
+                  name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ing-02
+  labels:
+    app: ing-02
+spec:
+  type: ClusterIP
+  selector:
+    app: ing-02
+  ports:
+    - name: http
+      port: 8000
+      protocol: TCP
+      targetPort: http-server
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ing-02
+  labels:
+    app: ing-02
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ing-02
+  template:
+    metadata:
+      labels:
+        app: ing-02
+    spec:
+      containers:
+        - name: server
+          image: ghcr.io/mmorejon/erase-una-vez-2:v0.4.0
+          command:
+            - server
+          ports:
+            - name: http-server
+              containerPort: 8000

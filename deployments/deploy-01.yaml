@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-example-1
+  labels:
+    name: example-1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: example-1
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        name: example-1
+    spec:
+      containers:
+        - image: ghcr.io/mmorejon/erase-una-vez-1:v0.3.0
+          name: erase-una-vez-1
+          env:
+            - name: CHARACTER
+              value: "un elfo."

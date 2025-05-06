@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cm-env-02
+  labels:
+    app: cm-02
+data:
+  text: "un castillo."
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-env-02
+  labels:
+    app: cm-02
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cm-02
+  template:
+    metadata:
+      labels:
+        app: cm-02
+    spec:
+      containers:
+        - name: container-01
+          image: ghcr.io/mmorejon/erase-una-vez-1:v0.3.0
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: CHARACTER
+              valueFrom:
+                configMapKeyRef:
+                  name: cm-env-02
+                  key: text

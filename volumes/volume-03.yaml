@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: volume-03
+  labels:
+    app: volume-03
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: volume-03
+  template:
+    metadata:
+      labels:
+        app: volume-03
+    spec:
+      nodeSelector:
+        kubernetes.io/hostname: book-worker
+      containers:
+        - name: example-01
+          image: ghcr.io/mmorejon/erase-una-vez-3:v0.2.0
+          imagePullPolicy: IfNotPresent
+          volumeMounts:
+            - name: my-volume
+              mountPath: /srv/erase-una-vez
+      volumes:
+        - name: my-volume
+          hostPath:
+            path: /tmp/erase-una-vez

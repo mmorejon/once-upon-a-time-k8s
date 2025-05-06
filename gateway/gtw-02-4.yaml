@@ -1,0 +1,110 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: gtw-02
+  labels:
+    app: gtw-02
+spec:
+  parentRefs:
+  - name: public
+    sectionName: http
+  hostnames:
+  - "gtw-02.172-18-0-6.nip.io"
+  rules:
+  - backendRefs:
+    - name: gtw-02-1
+      port: 8000
+      weight: 0
+    - name: gtw-02-2
+      port: 8000
+      weight: 1
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gtw-02-1
+  labels:
+    app: gtw-02
+spec:
+  type: ClusterIP
+  selector:
+    name: gtw-02-1
+  ports:
+    - name: http
+      port: 8000
+      protocol: TCP
+      targetPort: http-server
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gtw-02-1
+  labels:
+    app: gtw-02
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: gtw-02-1
+  template:
+    metadata:
+      labels:
+        app: gtw-02
+        name: gtw-02-1
+    spec:
+      containers:
+        - name: server
+          image: ghcr.io/mmorejon/erase-una-vez-2:sha-fe484d21
+          command:
+            - server
+          env:
+          - name: CHARACTER
+            value: "version 1"
+          ports:
+            - name: http-server
+              containerPort: 8000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gtw-02-2
+  labels:
+    app: gtw-02
+spec:
+  type: ClusterIP
+  selector:
+    name: gtw-02-2
+  ports:
+    - name: http
+      port: 8000
+      protocol: TCP
+      targetPort: http-server
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gtw-02-2
+  labels:
+    app: gtw-02
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: gtw-02-2
+  template:
+    metadata:
+      labels:
+        app: gtw-02
+        name: gtw-02-2
+    spec:
+      containers:
+        - name: server
+          image: ghcr.io/mmorejon/erase-una-vez-2:sha-fe484d21
+          command:
+            - server
+          env:
+          - name: CHARACTER
+            value: "version 2"
+          ports:
+            - name: http-server
+              containerPort: 8000

@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-example-5
+  labels:
+    name: example-5
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: example-5
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        name: example-5
+    spec:
+      topologySpreadConstraints:
+        - maxSkew: 1
+          topologyKey: kubernetes.io/hostname
+          whenUnsatisfiable: ScheduleAnyway
+          labelSelector:
+            matchLabels:
+              name: example-5
+      containers:
+        - image: ghcr.io/mmorejon/erase-una-vez-1:v0.3.0
+          name: erase-una-vez-1
+          env:
+            - name: CHARACTER
+              value: "un elfo."

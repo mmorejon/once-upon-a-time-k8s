@@ -1,0 +1,1 @@
+erase una vez un configmap como volumen.
