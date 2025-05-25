@@ -11,9 +11,9 @@ The Kubernetes cluster described in the book includes:
 
 ### Prerequisites
 
-* Have [Docker](https://docs.docker.com/get-docker/) installed `>= 27.2.0`
-* Have [Kubectl](https://kubernetes.io/docs/tasks/tools/) installed `1.31.1`
-* Have [Kind](https://kind.sigs.k8s.io/docs/user/quick-start/#installation) installed `v0.26.0`
+* Have [Docker](https://docs.docker.com/get-docker/) installed `>= 28.1.1`
+* Have [Kubectl](https://kubernetes.io/docs/tasks/tools/) installed `1.32.1`
+* Have [Kind](https://kind.sigs.k8s.io/docs/user/quick-start/#installation) installed `v0.29.0`
 
 ### Create Cluster
 
