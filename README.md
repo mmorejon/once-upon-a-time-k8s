@@ -1,51 +1,106 @@
-# Once Upon a Time Kubernetes
+# 🏰 Once Upon a Time Kubernetes
 
-Repository containing exercises and examples from the book [Once Upon a Time Kubernetes](https://leanpub.com/once-upon-a-time-kubernetes).
+<div align="center">
 
-## Cluster Features
+<img src="./assets/book-cover.jpg" alt="Book Cover Once Upon a Time Kubernetes" width="300"/>
 
-The Kubernetes cluster described in the book includes:
+### The official source code to master Kubernetes v1.32+
 
-* 1 control-plane
-* 2 workers
+**This repository contains the practical labs from the book.**
+Here you have the *"what"* (YAML manifests and scripts), but to understand the *"why"* (architecture, design, and DevOps strategy), you need the complete guide.
 
-### Prerequisites
+👇 **Get the updated 2025 edition here:** 👇
 
-* Have [Docker](https://docs.docker.com/get-docker/) installed `>= 28.1.1`
-* Have [Kubectl](https://kubernetes.io/docs/tasks/tools/) installed `1.32.1`
-* Have [Kind](https://kind.sigs.k8s.io/docs/user/quick-start/#installation) installed `v0.29.0`
+[![Amazon](https://img.shields.io/badge/Amazon-Buy_Paperback-orange?style=for-the-badge&logo=amazon)](https://www.amazon.es/dp/B0FB44MDQ7)
+[![LeanPub](https://img.shields.io/badge/LeanPub-Download_Ebook-blue?style=for-the-badge&logo=leanpub)](https://leanpub.com/once-upon-a-time-kubernetes)
 
-### Create Cluster
+</div>
 
-The cluster configurations are found in the `cluster/kind-config.yaml` file.
+---
 
+## ⚡ Project Status
+
+> **2025 Update:** This repository is kept strictly up to date. We have migrated the lab environment from **Vagrant** to **Kind**. Now you can spin up a professional cluster on your laptop in less than 2 minutes, consuming less RAM and aligned with modern standards.
+
+| Branch | Distribution | Status |
+| :--- | :--- | :--- |
+| **`main` / `v2.x`** | **Kind (K8s v1.32)** | ✅ **Recommended (Current Book)** |
+| `v1.x` | VirtualBox + Vagrant | ⚠️ Legacy (Previous Editions) |
+
+---
+
+## 🛠️ Prerequisites
+
+To run the examples without errors, ensure you have the following tools installed:
+
+* **Docker** `>= 27.2.0`
+* **Kubectl** `>= 1.32.1`
+* **Kind** `>= v0.30.0` (Kubernetes in Docker)
+
+---
+
+## 🚀 What will you deploy?
+
+This code accompanies the book chapters, where you will learn to:
+- **Chapter 2:** Spin up a multi-layer K8s cluster locally (no cloud costs).
+- **Chapter 9:** Ingress strategies to expose your apps to the real world.
+- **Chapter 12:** Manage persistent storage (PVCs) without data loss.
+
+*Stuck on an exercise? The step-by-step explanation is in the corresponding chapter of the book.*
+
+---
+
+## 🚀 How to start (Quickstart)
+
+Follow these steps to get your lab ready as described in **Chapter 2** of the book.
+
+### 1. Clone the repository
 ```bash
-git clone git@github.com:mmorejon/once-upon-a-time-k8s.git && \
-  cd once-upon-a-time-k8s && \
-  bash/cluster.sh create
+git clone https://github.com/mmorejon/once-upon-a-time-k8s.git
+cd once-upon-a-time-k8s
 ```
 
-<details>
-  <summary>Result</summary>
+### 2. Create the cluster
+We have automated the cluster creation. Detailed configurations can be found in `cluster/kind-config.yaml`.
 
-  ```
-  Creating cluster "book" ...
-  ✓ Ensuring node image (kindest/node:v1.32.1) 🖼
-  ✓ Preparing nodes 📦 📦 📦
-  ✓ Writing configuration 📜
-  ✓ Starting control-plane 🕹️
-  ✓ Installing CNI 🔌
-  ✓ Installing StorageClass 💾
-  ✓ Joining worker nodes 🚜
-  Set kubectl context to "kind-book"
-  You can now use your cluster with:
+```bash
+# Run the creation script from the project root
+bash/cluster.sh create
+```
 
-  kubectl cluster-info --context kind-book
+### 3. Expected Result
+If everything went well, you will see the initialization of the nodes and the control plane:
 
-  Have a question, bug, or feature request? Let us know! https://kind.sigs.k8s.io/#community 🙂
-  ```
-</details>
+```text
+Creating cluster "book" ...
+ ✓ Ensuring node image (kindest/node:v1.32.1) 🖼
+ ✓ Preparing nodes 📦 📦 📦
+ ✓ Writing configuration 📜
+ ✓ Starting control-plane 🕹️
+ ✓ Installing CNI 🔌
+ ✓ Installing StorageClass 💾
+ ✓ Joining worker nodes 🚜
+Set kubectl context to "kind-book"
+```
 
-## Suggestions and Comments
+Ready! Your `kubectl` context now points to the `kind-book` cluster. You can now start deploying.
 
-We'd love to hear your thoughts on the book [Once Upon a Time Kubernetes](https://leanpub.com/once-upon-a-time-kubernetes). Just like in fairy tales, we're here to help make your dreams come true!
+```bash
+kubectl cluster-info --context kind-book
+```
+
+---
+
+## 🤝 Community and Support
+
+This project is alive thanks to the readers.
+
+1.  🐛 **Error in the code?** Open an [Issue](https://github.com/mmorejon/once-upon-a-time-k8s/issues) in this repository.
+2.  ⭐ **Found it useful?** Give the repository a **star** (top right). It helps us reach more engineers.
+3.  📚 **Don't have the book yet?**
+
+<div align="center">
+    <a href="https://www.amazon.es/dp/B0FB44MDQ7">
+        <img src="https://img.shields.io/badge/Amazon-Check_Price_and_Reviews-orange?style=flat-square&logo=amazon" />
+    </a>
+</div>
