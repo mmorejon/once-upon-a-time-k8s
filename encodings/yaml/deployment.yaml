@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: once-upon-a-time-2-prod
+  labels:
+    app: once-upon-a-time-2
+    env: prod
+    tier: frontend
+spec:
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 25%
+  selector:
+    matchLabels:
+      app: once-upon-a-time-2
+  template:
+    metadata:
+      labels:
+        app: once-upon-a-time-2
+    spec:
+      containers:
+      - name: server
+        image: ghcr.io/mmorejon/erase-una-vez-2:v0.5.0
+
+        ports:
+        - containerPort: 8000
+          name: http
+
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 500m
+            memory: 256Mi
+
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 8000
+          initialDelaySeconds: 15
+          periodSeconds: 20
+
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: region
+                operator: In
+                values:
+                - west
