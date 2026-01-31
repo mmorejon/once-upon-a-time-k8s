@@ -26,7 +26,7 @@ spec:
             matchLabels:
               name: example-5
       containers:
-        - image: ghcr.io/mmorejon/erase-una-vez-1:v0.3.0
+        - image: ghcr.io/mmorejon/erase-una-vez-1:v0.3.2
           name: erase-una-vez-1
           env:
             - name: CHARACTER
