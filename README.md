@@ -34,7 +34,7 @@ Here you have the *"what"* (YAML manifests and scripts), but to understand the *
 To run the examples without errors, ensure you have the following tools installed:
 
 * **Docker** `>= 27.2.0`
-* **Kubectl** `>= 1.32.1`
+* **Kubectl** `>= 1.35.0`
 * **Kind** `>= v0.30.0` (Kubernetes in Docker)
 
 ---
@@ -73,7 +73,7 @@ If everything went well, you will see the initialization of the nodes and the co
 
 ```text
 Creating cluster "book" ...
- ✓ Ensuring node image (kindest/node:v1.32.1) 🖼
+ ✓ Ensuring node image (kindest/node:v1.35.0) 🖼
  ✓ Preparing nodes 📦 📦 📦
  ✓ Writing configuration 📜
  ✓ Starting control-plane 🕹️
@@ -91,13 +91,27 @@ kubectl cluster-info --context kind-book
 
 ---
 
+## 🤝 Community and Feedback
+
+This project is alive thanks to the readers. Since Leanpub doesn't have a native comments system, we use this repository to centralize the communication.
+
+**What do you want to do today?**
+
+| Your goal | Where to go |
+| :--- | :--- |
+| 📣 **Leave a review** | [**Go to Discussions / Reviews and Feedback**](https://github.com/mmorejon/once-upon-a-time-k8s/discussions/categories/reviews-and-feedback) <br> *Tell us what you think of the book.* |
+| 💬 **I have a question** | [**Go to Discussions / Q&A**](https://github.com/mmorejon/once-upon-a-time-k8s/discussions/categories/q-a-questions-and-help) <br> *Ask about concepts, diagrams or exercises.* |
+| 💡 **Suggest ideas** | [**Go to Discussions / Ideas**](https://github.com/mmorejon/once-upon-a-time-k8s/discussions/categories/ideas-for-future-editions) <br> *Propose topics for future chapters.* |
+| 🐛 **Report an error** | [**Open an Issue**](https://github.com/mmorejon/once-upon-a-time-k8s/issues/new) <br> *Only for typos or errors in the code.* |
+
+---
+
 ## 🤝 Community and Support
 
 This project is alive thanks to the readers.
 
-1.  🐛 **Error in the code?** Open an [Issue](https://github.com/mmorejon/once-upon-a-time-k8s/issues) in this repository.
-2.  ⭐ **Found it useful?** Give the repository a **star** (top right). It helps us reach more engineers.
-3.  📚 **Don't have the book yet?**
+1.  ⭐ **Found it useful?** Give the repository a **star** (top right). It helps us reach more engineers.
+2.  📚 **Don't have the book yet?**
 
 <div align="center">
     <a href="https://www.amazon.es/dp/B0FB44MDQ7">
