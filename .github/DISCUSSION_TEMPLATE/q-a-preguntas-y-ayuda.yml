@@ -1,0 +1,47 @@
+title: "[Question] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Hi there! 👋
+        Nobody is born knowing Kubernetes. We're here to help you get unstuck.
+        Please fill out these fields so the community can quickly understand your problem.
+
+  - type: input
+    id: capitulo
+    attributes:
+      label: "Which chapter or exercise is your question about?"
+      placeholder: "Example: Chapter 4 (Pods), Ingress Lab..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: "Describe your question or problem"
+      description: "What were you trying to do? What did you expect to happen, and what actually happened?"
+      placeholder: "I was trying to start the example pod, but it's stuck in a CrashLoopBackOff state..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: "Logs, Commands, or YAML Manifests"
+      description: "Please paste the terminal error or the YAML you're using here."
+      placeholder: |
+        $ kubectl get pods
+        NAME      READY   STATUS             RESTARTS   AGE
+        my-pod    0/1     ImagePullBackOff   0          12s
+      render: shell
+    validations:
+      required: false
+
+  - type: input
+    id: environment
+    attributes:
+      label: "Environment (Optional)"
+      description: "Only if it's relevant (e.g., you're on Windows, Mac M1, using Kind v0.20...)"
+      placeholder: "Mac M2, Kind v0.20, Docker Desktop..."
+    validations:
+      required: false
