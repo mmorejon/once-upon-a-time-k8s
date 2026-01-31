@@ -9,7 +9,7 @@
 **This repository contains the practical labs from the book.**
 Here you have the *"what"* (YAML manifests and scripts), but to understand the *"why"* (architecture, design, and DevOps strategy), you need the complete guide.
 
-👇 **Get the updated 2025 edition here:** 👇
+👇 **Get the updated 2026 edition here:** 👇
 
 [![Amazon](https://img.shields.io/badge/Amazon-Buy_Paperback-orange?style=for-the-badge&logo=amazon)](https://www.amazon.es/dp/B0FB44MDQ7)
 [![LeanPub](https://img.shields.io/badge/LeanPub-Download_Ebook-blue?style=for-the-badge&logo=leanpub)](https://leanpub.com/once-upon-a-time-kubernetes)
@@ -20,7 +20,7 @@ Here you have the *"what"* (YAML manifests and scripts), but to understand the *
 
 ## ⚡ Project Status
 
-> **2025 Update:** This repository is kept strictly up to date. We have migrated the lab environment from **Vagrant** to **Kind**. Now you can spin up a professional cluster on your laptop in less than 2 minutes, consuming less RAM and aligned with modern standards.
+> **2026 Update:** This repository is kept strictly up to date. We have migrated the lab environment from **Vagrant** to **Kind**. Now you can spin up a professional cluster on your laptop in less than 2 minutes, consuming less RAM and aligned with modern standards.
 
 | Branch | Distribution | Status |
 | :--- | :--- | :--- |
