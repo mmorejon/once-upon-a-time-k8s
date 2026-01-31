@@ -38,7 +38,7 @@ spec:
     spec:
       containers:
         - name: server
-          image: ghcr.io/mmorejon/erase-una-vez-2:v0.3.0
+          image: ghcr.io/mmorejon/erase-una-vez-2:v0.5.0
           command:
             - server
           ports:
@@ -76,14 +76,12 @@ spec:
     spec:
       containers:
         - name: client
-          image: ghcr.io/mmorejon/erase-una-vez-2:v0.3.0
+          image: ghcr.io/mmorejon/erase-una-vez-2:v0.5.0
           command:
             - client
           env:
-            - name: SERVER_URL
-              value: "http://app-server-1:8000"
             - name: ENDPOINT
-              value: "/echo"
+              value: "http://app-server-1:8000/echo"
             - name: SLEEP_TIME
               value: "50ms"
           resources:

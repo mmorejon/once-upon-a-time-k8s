@@ -5,14 +5,14 @@ metadata:
 spec:
   containers:
     - name: first-message
-      image: ghcr.io/mmorejon/erase-una-vez-1:v0.3.0
+      image: ghcr.io/mmorejon/erase-una-vez-1:v0.3.2
       env:
         - name: CHARACTER
           value: "dos contenedores (first-message)."
         - name: SLEEP_TIME
           value: "3s"
     - name: second-message
-      image: ghcr.io/mmorejon/erase-una-vez-1:v0.3.0
+      image: ghcr.io/mmorejon/erase-una-vez-1:v0.3.2
       env:
         - name: CHARACTER
           value: "dos contenedores (second-message)."
