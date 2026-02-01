@@ -18,4 +18,4 @@ spec:
     spec:
       containers:
         - name: message
-          image: ghcr.io/mmorejon/erase-una-vez-1:v0.3.0
+          image: ghcr.io/mmorejon/erase-una-vez-1:v0.3.2

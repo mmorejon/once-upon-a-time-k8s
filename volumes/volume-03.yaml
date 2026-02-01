@@ -17,13 +17,13 @@ spec:
       nodeSelector:
         kubernetes.io/hostname: book-worker
       containers:
-        - name: example-01
-          image: ghcr.io/mmorejon/erase-una-vez-3:v0.2.0
+        - name: app
+          image: ghcr.io/mmorejon/erase-una-vez-3:v0.2.1
           imagePullPolicy: IfNotPresent
           volumeMounts:
-            - name: my-volume
-              mountPath: /srv/erase-una-vez
+            - name: files
+              mountPath: /srv/once-upon-a-time
       volumes:
-        - name: my-volume
+        - name: files
           hostPath:
-            path: /tmp/erase-una-vez
+            path: /tmp/once-upon-a-time

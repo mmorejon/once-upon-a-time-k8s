@@ -15,21 +15,22 @@ spec:
         app: volume-02
     spec:
       containers:
-        - name: container-01
-          image: ghcr.io/mmorejon/erase-una-vez-3:v0.2.0
+        - name: app-1
+          image: ghcr.io/mmorejon/erase-una-vez-3:v0.2.1
           imagePullPolicy: IfNotPresent
           volumeMounts:
-            - name: my-volume
-              mountPath: /srv/erase-una-vez
-        - name: container-02
-          image: ghcr.io/mmorejon/erase-una-vez-3:v0.2.0
+            - name: files
+              mountPath: /srv/once-upon-a-time
+        - name: app-2
+          image: ghcr.io/mmorejon/erase-una-vez-3:v0.2.1
           imagePullPolicy: IfNotPresent
           env:
             - name: SLEEP_TIME
               value: "2"
           volumeMounts:
-            - name: my-volume
-              mountPath: /srv/erase-una-vez
+            - name: files
+              mountPath: /srv/once-upon-a-time
       volumes:
-        - name: my-volume
-          emptyDir: {}
+        - name: files
+          emptyDir:
+            sizeLimit: 10Mi

@@ -15,12 +15,13 @@ spec:
         app: volume-01
     spec:
       containers:
-        - name: example-01
-          image: ghcr.io/mmorejon/erase-una-vez-3:v0.2.0
+        - name: app
+          image: ghcr.io/mmorejon/erase-una-vez-3:v0.2.1
           imagePullPolicy: IfNotPresent
           volumeMounts:
-            - name: my-volume
-              mountPath: /srv/erase-una-vez
+            - name: files
+              mountPath: /srv/once-upon-a-time
       volumes:
-        - name: my-volume
-          emptyDir: {}
+        - name: files
+          emptyDir:
+            sizeLimit: 10Mi
