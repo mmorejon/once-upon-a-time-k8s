@@ -1,16 +1,28 @@
-apiVersion: v1
-kind: PersistentVolume
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: pv-volume-01
+  name: volume-04
   labels:
     app: volume-04
-    type: local
 spec:
-  storageClassName: ""
-  capacity:
-    storage: 5Mi
-  accessModes:
-    - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Retain
-  hostPath:
-    path: "/tmp/pv-volume-01"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: volume-04
+  template:
+    metadata:
+      labels:
+        app: volume-04
+    spec:
+      containers:
+        - name: app
+          image: ghcr.io/mmorejon/erase-una-vez-1:v0.3.2
+          imagePullPolicy: IfNotPresent
+          volumeMounts:
+            - name: files
+              mountPath: /srv/once-upon-a-time
+      volumes:
+        - name: files
+          image:
+            reference: ghcr.io/mmorejon/erase-una-vez-5:main
+            pullPolicy: IfNotPresent

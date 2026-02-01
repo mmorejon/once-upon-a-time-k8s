@@ -1,22 +1,9 @@
 apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: volume-05
-  labels:
-    app: volume-05
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 50Mi
----
-apiVersion: v1
 kind: Pod
 metadata:
-  name: volume-05
+  name: volume-06
   labels:
-    app: volume-05
+    app: volume-06
 spec:
   containers:
   - name: app
@@ -27,4 +14,4 @@ spec:
   volumes:
   - name: files
     persistentVolumeClaim:
-      claimName: volume-05
+      claimName: volume-06
