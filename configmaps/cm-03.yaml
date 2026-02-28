@@ -5,7 +5,7 @@ metadata:
   labels:
     app: cm-03
 data:
-  CHARACTER: "un palacio."
+  CHARACTER: "a palace."
   SLEEP_TIME: "5s"
 
 ---
@@ -28,7 +28,6 @@ spec:
       containers:
         - name: container-01
           image: ghcr.io/mmorejon/erase-una-vez-1:v0.3.2
-          imagePullPolicy: IfNotPresent
           envFrom:
             - configMapRef:
                 name: cm-env-03

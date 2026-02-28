@@ -5,7 +5,7 @@ metadata:
   labels:
     app: cm-02
 data:
-  text: "un castillo."
+  text: "a castle."
 
 ---
 apiVersion: apps/v1
@@ -27,7 +27,6 @@ spec:
       containers:
         - name: container-01
           image: ghcr.io/mmorejon/erase-una-vez-1:v0.3.2
-          imagePullPolicy: IfNotPresent
           env:
             - name: CHARACTER
               valueFrom:

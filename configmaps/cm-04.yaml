@@ -6,7 +6,7 @@ metadata:
     app: cm-04
 data:
   text.txt: |-
-    erase una vez un configmap como volumen.
+    once upon a time a configmap as a volume.
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -27,7 +27,6 @@ spec:
       containers:
         - name: container-01
           image: ghcr.io/mmorejon/erase-una-vez-1:v0.3.2
-          imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: cm-as-volume
               mountPath: /tmp/files
