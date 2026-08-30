@@ -18,6 +18,12 @@ kubectl --namespace default delete -f $BASEDIR/services/ $FLAGS
 kubectl delete -f $BASEDIR/ingress/nginx $FLAGS
 kubectl --namespace default delete -f $BASEDIR/ingress/ $FLAGS
 kubectl delete namespace ingress-nginx $FLAGS
+if kubectl get crd httproutes.gateway.networking.k8s.io &>/dev/null; then
+  kubectl delete -f $BASEDIR/gateway/ $FLAGS
+  kubectl delete -f $BASEDIR/gateway/nginx/nginx-deploy.yaml $FLAGS
+  kubectl delete -f $BASEDIR/gateway/nginx/crds $FLAGS
+fi
+kubectl delete namespace nginx-gateway $FLAGS
 kubectl delete -f $BASEDIR/namespaces/ $FLAGS
 kubectl delete -f $BASEDIR/volumes/ $FLAGS
 kubectl --namespace default delete -f $BASEDIR/configmaps/ $FLAGS

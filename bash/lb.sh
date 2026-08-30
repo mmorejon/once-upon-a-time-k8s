@@ -5,6 +5,8 @@ args=("$@")
 
 # create load balancer
 if [[ " ${args[*]} " == *" start "* ]]; then
+    # remove any leftover container from a previous run/race before starting
+    docker container rm -f cloud-provider-kind &>/dev/null
     docker container run --rm --detach \
       --name cloud-provider-kind \
       --network kind \
