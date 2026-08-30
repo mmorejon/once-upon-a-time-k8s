@@ -4,7 +4,7 @@
 
 <img src="./assets/book-cover.jpg" alt="Book Cover Once Upon a Time Kubernetes" width="300"/>
 
-### The official source code to master Kubernetes v1.32+
+### The official source code to master Kubernetes v1.36+
 
 **This repository contains the practical labs from the book.**
 Here you have the *"what"* (YAML manifests and scripts), but to understand the *"why"* (architecture, design, and DevOps strategy), you need the complete guide.
@@ -24,7 +24,7 @@ Here you have the *"what"* (YAML manifests and scripts), but to understand the *
 
 | Branch | Distribution | Status |
 | :--- | :--- | :--- |
-| **`main` / `v2.x`** | **Kind (K8s v1.32)** | ✅ **Recommended (Current Book)** |
+| **`main` / `v2.x`** | **Kind (K8s v1.36)** | ✅ **Recommended (Current Book)** |
 | `v1.x` | VirtualBox + Vagrant | ⚠️ Legacy (Previous Editions) |
 
 ---
@@ -34,7 +34,7 @@ Here you have the *"what"* (YAML manifests and scripts), but to understand the *
 To run the examples without errors, ensure you have the following tools installed:
 
 * **Docker** `>= 27.2.0`
-* **Kubectl** `>= 1.35.0`
+* **Kubectl** `>= 1.36.0`
 * **Kind** `>= v0.30.0` (Kubernetes in Docker)
 
 ---
@@ -73,7 +73,7 @@ If everything went well, you will see the initialization of the nodes and the co
 
 ```text
 Creating cluster "book" ...
- ✓ Ensuring node image (kindest/node:v1.35.0) 🖼
+ ✓ Ensuring node image (kindest/node:v1.36.1) 🖼
  ✓ Preparing nodes 📦 📦 📦
  ✓ Writing configuration 📜
  ✓ Starting control-plane 🕹️
