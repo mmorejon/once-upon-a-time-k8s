@@ -1,8 +1,8 @@
-# 🏰 Once Upon a Time Kubernetes
+# Kubernetes: Once Upon a Time
 
 <div align="center">
 
-<img src="./assets/book-cover.jpg" alt="Book Cover Once Upon a Time Kubernetes" width="300"/>
+<img src="./assets/book-cover.jpg" alt="Book Cover Kubernetes: Once Upon a Time" width="300"/>
 
 ### The official source code to master Kubernetes v1.36+
 
